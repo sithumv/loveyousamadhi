@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart with Love</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #000; /* Black background */
+      font-family: Arial, sans-serif;
+    }
+
+    .heart-container {
+      position: relative;
+      font-size: 100px;
+      color: red;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .heart-container:hover {
+      transform: scale(1.2);
+    }
+
+    .love-message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      color: white; /* White text for better contrast */
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .heart-container.clicked .love-message {
+      opacity: 1;
+      transform: translate(-50%, -70%);
+    }
+  </style>
+</head>
+<body>
+  <div class="heart-container" onclick="showLove()">
+    ❤️
+    <div class="love-message">I love you Samadhi ❤️</div>
+  </div>
+
+  <script>
+    function showLove() {
+      const heart = document.querySelector('.heart-container');
+      heart.classList.add('clicked');
+      setTimeout(() => {
+        heart.classList.remove('clicked');
+      }, 2000); // Message disappears after 2 seconds
+    }
+  </script>
+</body>
+</html>
